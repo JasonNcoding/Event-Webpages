@@ -1,0 +1,68 @@
+<div class="container mt-5">
+    <div class="row row-cols-1 row-cols-sm-2 g-3">
+        <div class="col mx-auto">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <p class="fw-bold">Select one of the events to update</p>
+                    <div *ngIf="events.length>0">
+                        <div class="form-group">
+                            <label for="eventName">Event Name</label>
+                            <br>
+                            <input type="text" class="form-control" id="eventName" [(ngModel)]="eventName">
+                            <br>
+                        </div>
+                        <div class="form-group">
+                            <label for="eventCapacity">Event Capacity</label>
+                            <br>
+                            <input type="number" class="form-control" id="eventCapacity" [(ngModel)]="eventCapacity">
+                            <br>
+                        </div>
+                        <button type="submit" class="btn" (click)="onUpdateEvent()" style="background-color:darksalmon">Update Event</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="album py-5">
+<div class="container">
+    <table class="table">
+        <thead>
+            <tr style="background-color:aqua">
+                <th>Id</th>
+                <th>Name</th>
+                <th>Start</th>
+                <th>End</th>
+                <th>Duration</th>
+                <th>Is Active</th>
+                <th>Capacity</th>
+                <th>Tickets Available</th>
+                <th>Categorie(s)</th>
+                <th>Action </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngIf="events.length == 0">
+                <th scope="row" colspan="12" class="text-center text-bold">No Event found</th>
+            </tr>
+
+            <tr *ngFor="let record of events">
+                <th scope="row">{{ record.eventId}}</th>
+                <td>{{ record.name }}</td>
+                <td>{{ record.startDateTime | date :'dd/MM/yyyy, hh:mm:ss aa'}}</td>
+                <td>{{ record.startDateTime | setEndDateTime:record.durationInMinutes | date :'dd/MM/yyyy, hh:mm:ss aa'}}</td>
+                <td>{{ record.durationInMinutes | durationConversion}}</td>
+                <td *ngIf="record.isActive"><input type="checkbox" checked disabled></td>
+                <td *ngIf="!record.isActive"><input type="checkbox" disabled></td>
+                <td>{{ record.capacity }}</td>
+                <td>{{ record.ticketAvailable }}</td>
+                <td>{{ record.categoriesList | convertCategoryList}}</td>
+
+
+                <td><button type="submit" class="btn" (click)="onSelectUpdate(record)" style="background-color:darksalmon" >Select</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+</div>

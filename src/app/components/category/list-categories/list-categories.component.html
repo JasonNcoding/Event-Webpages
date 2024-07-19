@@ -1,0 +1,34 @@
+<div class="album py-5">
+    <div class="container">
+        <table class="table">
+            <thead>
+                <tr style="background-color:darksalmon">
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Image</th>
+                    <th>Created Date</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngIf="categories.length == 0">
+                    <th scope="row" colspan="8" class="text-center text-bold">No categories found</th>
+                </tr>
+
+                <tr *ngFor="let record of categories">
+                    <th scope="row">{{ record.categoryId}}</th>
+                    <td>{{ record.name | capitalise }}</td>
+                    <td>{{ record.description }}</td>
+                    <td>
+                        <p>{{ record.imageUrl }}</p>
+                        <img class="img-fluid" src="../../../../assets/images/{{ record.imageUrl }}" alt="category-image" width="200" />
+                    </td>
+                    <td>{{ record.createdDateTime | date :'dd/MM/yyyy, hh:mm:ss aa' }}</td>
+                    <td><button class="btn" style="background-color:darksalmon" (click)="onViewCategory(record.categoryId)">View</button></td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+</div>

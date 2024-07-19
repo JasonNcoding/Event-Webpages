@@ -1,0 +1,66 @@
+<div class="container mt-3 mb-3">
+        <img class="img-fluid" src="../../../../assets/images/{{ event.image }}" alt="category-image" width="100%">
+</div>
+
+<div class="container mt-3 mb-3">
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <div class="mb-3">
+                <label for="objectId" style="font-weight: bold;">Object Id</label>
+                <div>{{ event._id }}</div>
+            </div>
+
+            <div class="mb-3">
+                <label for="eventId" style="font-weight: bold;">Event Id</label>
+                <div>{{ event.eventId }}</div>
+            </div>
+
+            <div class="mb-3">
+                <label for="name" style="font-weight: bold;">Name</label>
+                <div>{{ event.name }}</div>
+            </div>
+
+
+            <div class="mb-3">
+                <label for="desc" style="font-weight: bold;">Description</label>
+                <div>{{ event.desc }}</div>
+            </div>
+
+            <div class="mb-3">
+                <label for="startDateTime" style="font-weight: bold;">Start Date Time</label>
+                <div>{{ event.startDateTime | date :'dd/MM/yyyy, hh:mm:ss aa'}}</div>
+            </div>
+
+            <div class="mb-3">
+                <label for="endDateTime" style="font-weight: bold;">End Date Time</label>
+                <div>{{ event.startDateTime | setEndDateTime:event.durationInMinutes | date :'dd/MM/yyyy, hh:mm:ss aa'}}</div>
+            </div>
+
+            <div class="mb-3">
+                <label for="durationInMinutes" style="font-weight: bold;">Duration</label>
+                <div>{{ event.durationInMinutes | durationConversion}}</div>
+            </div>
+
+            <div class="mb-3">
+                <label for="isActive" style="font-weight: bold;">Is Active</label>
+                <td *ngIf="event.isActive"><input type="checkbox" checked disabled></td>
+                <td *ngIf="!event.isActive"><input type="checkbox" disabled></td>
+            </div>
+
+            <div class="mb-3">
+                <label for="capacity" style="font-weight: bold;">Capacity</label>
+                <div>{{ event.capacity }}</div>
+            </div>
+
+            <div class="mb-3">
+                <label for="ticketAvailable" style="font-weight: bold;">Tickets Available</label>
+                <div>{{ event.ticketAvailable }}</div>
+            </div>
+
+            <div class="mb-3">
+                <label for="categoriesList" style="font-weight: bold;">Categorie(s)</label>
+                <td>{{ event.categoriesList | convertCategoryList}}</td>
+            </div>
+        </div>
+    </div>
+</div>

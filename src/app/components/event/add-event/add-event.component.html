@@ -1,0 +1,63 @@
+<div class="container mt-3">
+    <div class="row row-cols-1 row-cols-sm-2 g-3">
+        <div class="col mx-auto">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" [(ngModel)]="name" class="form-control" id="name" required
+                            placeholder="Enter event name" />
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="desc" class="form-label">Description</label>
+                        <textarea type="text" [(ngModel)]="desc" class="form-control" id="desc" rows="7"></textarea>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="image" class="form-label">Image</label>
+                        <input type="text" [(ngModel)]="image" class="form-control" id="image" 
+                        placeholder="Enter static resource path" />
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="startDateTime" class="form-label">Start DateTime</label>
+                        <input type="datetime-local" [(ngModel)]="startDateTime" class="form-control" id="startDateTime" required onfocus="(this.type='datetime-local')"/>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="durationInMinutes" class="form-label">Duration In Minutes</label>
+                        <input type="number" [(ngModel)]="durationInMinutes" class="form-control" id="durationInMinutes" 
+                        placeholder="Event duration in minutes" required />
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="isActive" class="form-label">Is Active</label>
+                        <div><input type="checkbox" [(ngModel)]="isActive" id="isActive"/></div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="capacity" class="form-label">Capacity</label>
+                        <input type="number" [(ngModel)]="capacity" class="form-control" id="capacity" 
+                        placeholder="Event capacity"/>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="ticketAvailable" class="form-label">Ticket Available</label>
+                        <input type="number" [(ngModel)]="ticketAvailable" class="form-control" id="ticketAvailable" 
+                        placeholder="Ticket Available (optional)" />
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="categoriesList" class="form-label">Category Id(s)</label>
+                        <input type="text" [(ngModel)]="categoriesList" class="form-control" id="categoriesList"
+                            placeholder="Enter category Id(s)" required />
+                    </div>
+
+                    <button class="btn" (click)="saveEvent()" style="background-color:darksalmon">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,35 @@
+<!-- <div class="m-3 p-5 text-center" style="border-style: solid; border-color: darksalmon; border-width: 5px;">
+  <h1 class="fw-bold" style="color: darksalmon;">Event Management App</h1>
+</div> -->
+<div class="m-3 p-5 text-center" style="background-color:darksalmon">
+  <h1 class="text-dark fw-bold">Event Management App</h1>
+</div>
+
+<div class="container mt-3 text-center">
+  <div class="btn-group" role="group" style="background-color: #f4cabc;">
+    <a type="button" class="btn fw-bold" routerLink="/category/list">Category List</a>
+    <a type="button" class="btn fw-bold" routerLink="/category/add">Add Category</a>
+    <a type="button" class="btn fw-bold" routerLink="/category/update">Update Category</a>
+    <a type="button" class="btn fw-bold" routerLink="/category/delete">Delete Category</a>
+    <a type="button" class="btn fw-bold" routerLink="/text-to-speech">Text To Speech</a>
+    <a type="button" class="btn fw-bold" routerLink="/stats/g1">Stats G1</a>
+  </div>
+</div>
+
+<div class="container mt-3 text-center">
+  <div class="btn-group" role="group" style="background-color:lightskyblue;">
+    <a type="button" class="btn fw-bold" routerLink="/event/list">Event List</a>
+    <a type="button" class="btn fw-bold" routerLink="/event/add">Add Event</a>
+    <a type="button" class="btn fw-bold" routerLink="/event/update">Update Event</a>
+    <a type="button" class="btn fw-bold" routerLink="/event/delete">Delete Event</a>
+    <a type="button" class="btn fw-bold" routerLink="/translation">Translation</a>
+    <a type="button" class="btn fw-bold" routerLink="/stats/g2">Stats G2</a>
+  </div>
+</div>
+
+<router-outlet></router-outlet>
+
+<div class="container mt-5 text-secondary text-center">
+  <h2>Developed by</h2>
+  <img class="img-fluid" src="./assets/images/logo.jpg" alt="Logo" width="200" />
+</div>

@@ -1,0 +1,41 @@
+<div class="album py-5">
+    <div class="container">
+        <table class="table">
+            <thead>
+                <tr style="background-color:aqua">
+                <th>Id</th>
+                <th>Name</th>
+                <th>Start</th>
+                <th>End</th>
+                <th>Duration</th>
+                <th>Is Active</th>
+                <th>Capacity</th>
+                <th>Tickets Available</th>
+                <th>Categorie(s)</th>
+                <th>Action </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngIf="events.length == 0">
+                    <th scope="row" colspan="12" class="text-center text-bold">No Event found</th>
+                </tr>
+
+                <tr *ngFor="let record of events">
+                    <th scope="row">{{ record.eventId}}</th>
+                    <td>{{ record.name }}</td>
+                    <td>{{ record.startDateTime | date :'dd/MM/yyyy, hh:mm:ss aa'}}</td>
+                    <td>{{ record.startDateTime | setEndDateTime:record.durationInMinutes | date :'dd/MM/yyyy, hh:mm:ss aa'}}</td>
+                    <td>{{ record.durationInMinutes | durationConversion}}</td>
+                    <td *ngIf="record.isActive"><input type="checkbox" checked disabled></td>
+                    <td *ngIf="!record.isActive"><input type="checkbox" disabled></td>
+                    <td>{{ record.capacity }}</td>
+                    <td>{{ record.ticketAvailable }}</td>
+                    <td>{{ record.categoriesList | convertCategoryList}}</td>
+
+                    <td><button class="btn" (click)="onViewEvent(record.eventId)" style="background-color:darksalmon">View</button></td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+</div>

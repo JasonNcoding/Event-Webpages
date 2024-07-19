@@ -1,0 +1,20 @@
+<div class="container mt-5">
+    <div class="row row-cols-1 row-cols-sm-2 g-3">
+        <div class="col mx-auto">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <div class="mb-3">
+                        <label for="textInput" class="form-label">Text To Convert</label>
+                        <textarea type="text" [(ngModel)]="textInput" class="form-control" id="textInput"></textarea>
+                    </div>
+
+                    <button class="btn" (click)="sendToServer()" style="background-color:darksalmon">Convert To Speech</button>
+
+                    <div *ngIf="isSpeechReady" class="mt-3">
+                        <audio controls autoplay src={{audioSource}} type="audio/mpeg"></audio>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

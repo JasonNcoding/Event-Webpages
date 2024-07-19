@@ -1,0 +1,52 @@
+<div class="container mt-5">
+    <div class="row row-cols-1 row-cols-sm-2 g-3">
+        <div class="col mx-auto">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <p class="fw-bold">Translator</p>
+                    <div class="form-group">
+                        <label for="translateInput">Text to translate </label>
+                        <br>
+                        <textarea type="text" class="form-control" id="translateInput" [(ngModel)]="translateInput"
+                            rows="7"></textarea>
+                        <br>
+                    </div>
+                    <div class="form-group">
+                        <label for="targetLanguage">Target Language </label>
+                        <br>
+                        <select class="form-control" id="targetLanguage" [(ngModel)]="targetLanguage">
+                            <option>Vietnamese</option>
+                            <option>Japanese</option>
+                            <option>Korean</option>
+                        </select>
+                        <br>
+                    </div>
+                    <div class="container" *ngIf="translateOutput != '' and translateInput != '' ">
+                        <div class="card shadow-sm">
+                            <div class="card-body">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Text Translate</th>
+                                            <th>Target Language</th>
+                                            <th>Translation</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>{{ textTranslate}}</td>
+                                            <td>{{ finalTargetLanguage}}</td>
+                                            <td>{{ translateOutput}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <br>
+                    </div>
+                    <button type="submit" class="btn" (click)="serverTranslate()" style="background-color:darksalmon">Translate</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

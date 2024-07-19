@@ -1,0 +1,64 @@
+<div class="container mt-5">
+    <div class="row row-cols-1 row-cols-sm-2 g-3">
+        <div class="col mx-auto">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <p class="fw-bold">Select one of the categories to update</p>
+                    <div class="mb-3">
+                        <label for="nameInput" class="form-label">Name</label>
+                        <input type="text" [(ngModel)]="updateCatName" class="form-control" id="nameInput" required
+                        placeholder="Enter category name"/>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="descInput" class="form-label">Description</label>
+                        <textarea type="text" [(ngModel)]="updateCatDesc" class="form-control" id="descInput"></textarea>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="imageUrlInput" class="form-label">Image</label>
+                        <input type="text" [(ngModel)]="updateCatImageUrl" class="form-control" id="imageUrlInput"
+                            placeholder="Enter static resource path"/>
+                    </div>
+
+                    <button class="btn" (click)="saveCategory()" style="background-color:darksalmon">Update</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="album py-5">
+    <div class="container">
+        <table class="table">
+            <thead>
+                <tr style="background-color:darksalmon">
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Image</th>
+                    <th>Created Date</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngIf="categories.length == 0">
+                    <th scope="row" colspan="8" class="text-center text-bold">No categories found</th>
+                </tr>
+
+                <tr *ngFor="let record of categories">
+                    <th scope="row">{{ record.categoryId}}</th>
+                    <td>{{ record.name }}</td>
+                    <td>{{ record.description }}</td>
+                    <td>
+                        <p>{{ record.imageUrl }}</p>
+                        <img class="img-fluid" src="../../../../assets/images/{{ record.imageUrl }}" alt="category-image" width="200" />
+                    </td>
+                    <td>{{ record.createdDateTime | date :'dd/MM/yyyy, hh:mm:ss aa' }}</td>
+                    <td><button class="btn" style="background-color:darksalmon" (click)="onSelectCategory(record.categoryId)">Select</button></td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+</div>
